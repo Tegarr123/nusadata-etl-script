@@ -21,3 +21,5 @@ The current data pipeline is streamlined and built entirely on the Google ecosys
 - Data Warehouse: The central data warehouse is also hosted on Google Sheets, which I will interact with programmatically using the Google Sheets API.
 
 ![Project Workflow](https://raw.githubusercontent.com/Tegarr123/nusadata-etl-script/refs/heads/main/Workflow.png)
+
+![ETL for merging cleaned data](https://raw.githubusercontent.com/Tegarr123/nusadata-etl-script/refs/heads/main/etl_one_single_table.png)
