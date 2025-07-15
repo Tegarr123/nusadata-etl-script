@@ -1,6 +1,5 @@
 # nusadata-etl-script
 
-## What is this project about?
 ### Brief Overview
 The **Nusadata project** aims to comprehensively map the digital divide in Indonesia. The primary goal is to identify, evaluate, and analyze relevant datasets concerning digital access, with the potential to expand into digital usage, literacy, and equity impacts.
 
