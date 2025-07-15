@@ -19,4 +19,5 @@ The current data pipeline is streamlined and built entirely on the Google ecosys
 - Data Source: The primary data comes from Badan Pusat Statistik (BPS). This data is managed and maintained by the data clerks within Google Sheets.
 - ETL Process: I extract this data from the source sheets, perform necessary transformations (cleaning, standardizing, aggregating), and load it into the data warehouse.
 - Data Warehouse: The central data warehouse is also hosted on Google Sheets, which I will interact with programmatically using the Google Sheets API.
-[Project Workflow](https://raw.githubusercontent.com/Tegarr123/nusadata-etl-script/refs/heads/main/Workflow.png)
+
+![Project Workflow](https://raw.githubusercontent.com/Tegarr123/nusadata-etl-script/refs/heads/main/Workflow.png)
