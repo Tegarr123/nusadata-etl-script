@@ -1,3 +1,4 @@
 .vscode/
 venv/
 settings_notebook.py
+credentials.json
