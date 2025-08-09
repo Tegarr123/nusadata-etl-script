@@ -41,18 +41,38 @@ The ETL process follows these logical steps:
 
 
 ### 🔧 Prerequisites
-- Python 3.8+
+- Python 3.11
 - A Google Cloud Platform (GCP) project.
 - Enabled Google Drive API and Google Sheets API in your GCP project.
 - A Google Service Account with credentials (JSON key file).
   
 ### 🚀 Setup & Installation
-1. **Clone the Repository**:
+1. **Clone the Repository:**
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/Tegarr123/nusadata-etl-script.git
    cd nusadata-etl-script
    ```
-
+2. **Set Up a Virtual Environment (Recommended):**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
+3. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. **Google API Credentials:**
+   - Go to your [Google Cloud Console](https://console.cloud.google.com/).
+   - Create a new project (or use an existing one).
+   - Enable the **Google Drive API** and **Google Sheets API**.
+   - Go to "Credentials," click "Create Credentials," and select "Service Account."
+   - Name your service account, grant it a role (e.g., "Editor"), and click "Done."
+   - Open the service account, go to the "Keys" tab, click "Add Key," and create a new **JSON** key. This will download a ```.json``` file to your computer.
+   - **Important**: Rename this file to ```service_account.json``` and place it in the root directory of this project. **Ensure it is listed in your** ```.gitignore``` **file to avoid committing it to the repository.**
+5. **Share Google Sheets:**
+   - Open your downloaded ```service_account.json``` file and find the ```client_email``` address (e.g., ```my-service-account@...iam.gserviceaccount.com```).
+   - Share **all your source Google Sheets** and your **destination data warehouse Google Sheet** with this email address, giving it "Editor" permissions.
+   
 ### 🔩 Configuration
 
 ### ▶️ Usage
