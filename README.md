@@ -68,7 +68,7 @@ The ETL process follows these logical steps:
    - Go to "APIs & Services" → "Credentials."
    - Click "+ CREATE CREDENTIALS" and select "**OAuth client ID.**"
    - If prompted, configure the "**OAuth consent screen.**" For a personal project, you can choose "**External**" user type and fill in the required app name and email fields.
-   ![set_name](images/set.name.auth.platform.png) ![consent_audience](images/consent.audience.png)
+   ![set_name](images/set.name.auth.platform.png = 100x100) ![consent_audience](images/consent.audience.png)
    - For the "Application type," select "**Desktop app.**"
    ![application_type](images/app.type.oauth.png)
    - After creation, a window will pop up. Click "**DOWNLOAD JSON**" to get your credentials file.
