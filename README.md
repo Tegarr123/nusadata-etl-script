@@ -10,7 +10,7 @@ A Python-based ETL pipeline for consolidating data from multiple Google Sheets i
 - [Prerequisites](#-prerequisites)
 - [Setup & Installation](#-setup--installation)
 - [Configuration](#-configuration)
-- [Usage](#-usage)
+- [Usage](#%EF%B8%8F-usage)
 
 ### 🔎 Overview
 This project is designed to solve the common challenge of aggregating cleaned, but separate, datasets residing in Google Sheets. It provides a robust, re-runnable script that intelligently merges new and updated records into a master Google Sheet, which acts as a simple data warehouse. The core logic handles updates by overwriting existing records (SCD Type 1) and appends new records, ensuring the data warehouse stays current with minimal manual intervention.
