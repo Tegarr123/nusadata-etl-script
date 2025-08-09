@@ -47,7 +47,11 @@ The ETL process follows these logical steps:
 - A Google Service Account with credentials (JSON key file).
   
 ### 🚀 Setup & Installation
-
+1. **Clone the Repository**:
+   ```bash
+   git clone <your-repository-url>
+   cd nusadata-etl-script
+   ```
 
 ### 🔩 Configuration
 
