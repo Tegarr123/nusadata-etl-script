@@ -88,7 +88,7 @@ To run the full ETL process, simply execute the main Python script from your ter
 ```bash
 python main.py
 ```
-**First-Time Authorization**
+**First-Time Authorization**<br>
 The **very first time you run the script**, it will do the following:
 1. Automatically open a new tab in your web browser.
 2. Ask you to log in to your Google Account.
