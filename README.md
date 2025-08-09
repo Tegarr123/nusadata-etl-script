@@ -2,7 +2,7 @@
 A Python-based ETL pipeline for consolidating data from multiple Google Sheets into a central data warehouse sheet. This project automates the process of merging, transforming, and loading data, featuring built-in support for Change Data Capture and Slowly Changing Dimension (SCD) Type 1 updates.
 
 ### 📋 Table of Contents
-- Overview
+- [Overview](#Overview)
 - Features
 - Pipeline Architecture
 - How It Works
@@ -23,6 +23,10 @@ This project is designed to solve the common challenge of aggregating cleaned, b
 - **SCD Type 1 Handling**: Updates existing records by overwriting them with the latest data, ensuring no historical versions are kept.
 - **Idempotent Design**: The script can be run multiple times without causing data duplication or errors. Anyone can run it to fetch the latest updates.
 ### 📄 Pipeline Architecture
+
+
+
+### ⚙️ How It Works
 The ETL process follows these logical steps:
 1. **Extract**: The script authenticates with the Google API and reads all data from the specified source Google Sheets into Pandas DataFrames.
 2. **Transform**: It merges these DataFrames into a single, consolidated DataFrame.
@@ -33,15 +37,15 @@ The ETL process follows these logical steps:
    - **For Existing Data (SCD Type 1)**: Any row from the source data whose primary key already exists in the warehouse is identified as an update. The script then overwrites the existing row in the warehouse with the new data.
 4. **Final Load**: The updated DataFrame (containing both new and modified rows) is written back to the destination Google Sheet.
 
-
-### ⚙️ How It Works
-
-
 ### 📁 Project Structure
 
 
 ### 🔧 Prerequisites
-
+- Python 3.8+
+- A Google Cloud Platform (GCP) project.
+- Enabled Google Drive API and Google Sheets API in your GCP project.
+- A Google Service Account with credentials (JSON key file).
+  
 ### 🚀 Setup & Installation
 
 
