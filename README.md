@@ -93,6 +93,7 @@ The **very first time you run the script**, it will do the following:
 1. Automatically open a new tab in your web browser.
 2. Ask you to log in to your Google Account.
 3. Ask you to grant permission for the script to access your Google Sheets.
+
 After you approve, a ```token.json``` file will be created in your project directory. This file securely stores your authorization tokens so you won't have to log in again on subsequent runs.
 
 The script will print progress updates to the console, such as the number of new rows added and existing rows updated.
