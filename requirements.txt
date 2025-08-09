@@ -1,13 +1,9 @@
 google-api-python-client==2.176.0
 google-auth-httplib2==0.2.0
 google-auth-oauthlib==1.2.2
-ipython==9.4.0
-ipykernel==6.29.5
-ipython_pygments_lexers==1.1.1
 gspread==6.2.1
 gspread-dataframe==4.0.0
 tqdm==4.67.1
 pandas==2.3.1
 numpy==2.3.1
 requests==2.32.4
-python-dotenv==1.1.1

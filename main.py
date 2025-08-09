@@ -9,18 +9,26 @@ from googleapiclient.discovery import Resource
 import numpy as np
 from google_auth_oauthlib.flow import InstalledAppFlow
 import settings
-
+# from oauth2client.service_account import ServiceAccountCredentials
+# def get_creds(service_account_file: str, scope:list[str]) -> Credentials:
+#     try:
+#         creds = ServiceAccountCredentials.from_json_keyfile_name(service_account_file, scope)
+#     except FileNotFoundError:
+#         raise FileNotFoundError(f"Service account file '{service_account_file}' not found.")
+#     except json.JSONDecodeError:
+#         raise ValueError(f"Invalid JSON format in service account file '{service_account_file}'.")
+#     except Exception as e:
+#         raise Exception(f"An error occurred while loading service account credentials: {e}")
+    
+#     return creds
 def get_creds(credentials_file: str, token_file: str, scope:list[str]) -> Credentials:
     creds = None
     if os.path.exists(token_file):
         creds = Credentials.from_authorized_user_file(token_file, scope)
     if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                credentials_file, scope)
-            creds = flow.run_local_server(port=0)
+        flow = InstalledAppFlow.from_client_secrets_file(
+            credentials_file, scope)
+        creds = flow.run_local_server(port=0)
         with open(token_file, "w") as token:
             token.write(creds.to_json())   
     return creds
@@ -75,8 +83,8 @@ def get_all_cleaned_data(creds, cleaned_data_folder_id:str):
                 worksheet = spreadsheet.worksheet("main")
                 df = gspread_dataframe.get_as_dataframe(worksheet=worksheet)   
             except gspread.exceptions.APIError as e:
-                print(f"Error: Quota Exceeded | Retrying in 60 seconds . . .")
-                time.sleep(60)
+                print(f"Error: Quota Exceeded | Retrying in 65 seconds . . .")
+                time.sleep(65)
                 spreadsheet = sps_client.open_by_key(sheet_id)
                 worksheet = spreadsheet.worksheet("main")
                 df = gspread_dataframe.get_as_dataframe(worksheet=worksheet)
@@ -118,13 +126,13 @@ def concatenate_cleaned_data(df_list:list[pd.DataFrame]) -> pd.DataFrame:
     
     print(f"CONCATENATED DATAFRAME SHAPE: {concatenated_df.shape}")
     print(f"{len(concatenated_df.Province.unique())} UNIQUE PROVINCE DETECTED")
-    print(f"{len(concatenated_df["Indicator ID"].unique())} UNIQUE INDICATOR DETECTED")
-    print(f"{len(concatenated_df[~concatenated_df["2018"].isnull()])} NON-EMPTY VALUE DATA FROM 2018")
-    print(f"{len(concatenated_df[~concatenated_df["2019"].isnull()])} NON-EMPTY VALUE DATA FROM 2019")
-    print(f"{len(concatenated_df[~concatenated_df["2020"].isnull()])} NON-EMPTY VALUE DATA FROM 2020")
-    print(f"{len(concatenated_df[~concatenated_df["2021"].isnull()])} NON-EMPTY VALUE DATA FROM 2021")
-    print(f"{len(concatenated_df[~concatenated_df["2022"].isnull()])} NON-EMPTY VALUE DATA FROM 2022")
-    print(f"{len(concatenated_df[~concatenated_df["2023"].isnull()])} NON-EMPTY VALUE DATA FROM 2023")
+    print(f"{len(concatenated_df['Indicator ID'].unique())} UNIQUE INDICATOR DETECTED")
+    print(f"{len(concatenated_df[~concatenated_df['2018'].isnull()])} NON-EMPTY VALUE DATA FROM 2018")
+    print(f"{len(concatenated_df[~concatenated_df['2019'].isnull()])} NON-EMPTY VALUE DATA FROM 2019")
+    print(f"{len(concatenated_df[~concatenated_df['2020'].isnull()])} NON-EMPTY VALUE DATA FROM 2020")
+    print(f"{len(concatenated_df[~concatenated_df['2021'].isnull()])} NON-EMPTY VALUE DATA FROM 2021")
+    print(f"{len(concatenated_df[~concatenated_df['2022'].isnull()])} NON-EMPTY VALUE DATA FROM 2022")
+    print(f"{len(concatenated_df[~concatenated_df['2023'].isnull()])} NON-EMPTY VALUE DATA FROM 2023")
     
     return concatenated_df
 
@@ -376,16 +384,17 @@ def handle_dim_indicator(creds:Credentials,
                         default_null_value:str) -> pd.DataFrame:
     
     # IMPLEMENTATION OF SCD TYPE 1
-    rename_source_indicator = master_indicator_df.fillna(default_null_value).rename(columns={"Indicator_Code":"indicator_code",
+    rename_source_indicator = master_indicator_df.fillna(default_null_value).rename(columns={
+                                                                                            "Indicator_Code":"indicator_code",
                                                                                             "Indicator_Name":"indicator_name",
-                                                                                            "Theme":"theme_name",
-                                                                                            "Technology":"technology_name",
-                                                                                            "Tech_ID":"technology_code",
+                                                                                            "Category_ID":"category_id",
                                                                                             "Category":"category_name",
-                                                                                            "Category_ID":"category_code",
-                                                                                            "Unit":"unit",
-                                                                                            "Category_ID.1":"new_category_code",
-                                                                                            "New_Category":"new_category_name"})[dim_indicator.columns]
+                                                                                            "Sub_Category_ID":"sub_category_id",
+                                                                                            "Sub_Category":"sub_category_name",
+                                                                                            "Area_ID":"area_type_id",
+                                                                                            "Area_Type":"area_type_name",
+                                                                                            "Unit":"unit"
+                                                                                            })[dim_indicator.columns]
     drop_duplicates_source_indicator = rename_source_indicator.drop_duplicates(subset=["indicator_code"], keep="last").set_index("indicator_code")
     dim_indicator_buskey_as_index = dim_indicator.set_index("indicator_code")
     dim_indicator_buskey_as_index.update(drop_duplicates_source_indicator)
@@ -476,12 +485,6 @@ if __name__ == "__main__":
     print("\nLoading cleaned data . . .")
     cleaned_data:list[pd.DataFrame] = get_all_cleaned_data(creds, settings.CLEANED_DATA_DRIVE_FOLDER)
     print(f"Loaded {len(cleaned_data)} cleaned data files.\n")
-    
-    # # Convert cleaned data to DataFrame
-    # print("Converting cleaned data to DataFrame . . .")
-    # print("This may take a while . . .")
-    # df_list:list[pd.DataFrame] = convert_cleaned_data_to_df(cleaned_data)
-    # print(f"Converted {len(df_list)} DataFrames from cleaned data.\n")
     
     # Concatenate cleaned data
     print("\nConcatenating cleaned data . . .")
