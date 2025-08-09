@@ -61,17 +61,16 @@ The ETL process follows these logical steps:
    ```bash
    pip install -r requirements.txt
    ```
-4. **Google API Credentials:**
+4. **Google API Credentials (OAuth 2.0):**
    - Go to your [Google Cloud Console](https://console.cloud.google.com/).
    - Create a new project (or use an existing one).
    - Enable the **Google Drive API** and **Google Sheets API**.
-   - Go to "Credentials," click "Create Credentials," and select "Service Account."
-   - Name your service account, grant it a role (e.g., "Editor"), and click "Done."
-   - Open the service account, go to the "Keys" tab, click "Add Key," and create a new **JSON** key. This will download a ```.json``` file to your computer.
-   - **Important**: Rename this file to ```service_account.json``` and place it in the root directory of this project. **Ensure it is listed in your** ```.gitignore``` **file to avoid committing it to the repository.**
-5. **Share Google Sheets:**
-   - Open your downloaded ```service_account.json``` file and find the ```client_email``` address (e.g., ```my-service-account@...iam.gserviceaccount.com```).
-   - Share **all your source Google Sheets** and your **destination data warehouse Google Sheet** with this email address, giving it "Editor" permissions.
+   - Go to "APIs & Services" → "Credentials."
+   - Click "+ CREATE CREDENTIALS" and select "**OAuth client ID.**"
+   - If prompted, configure the "**OAuth consent screen.**" For a personal project, you can choose "**External**" user type and fill in the required app name and email fields.
+   - For the "Application type," select "**Desktop app.**"
+   - After creation, a window will pop up. Click "**DOWNLOAD JSON**" to get your credentials file.
+   - Rename the downloaded file to ```credentials.json``` and place it in the root directory of this project.
    
 ### 🔩 Configuration
 
