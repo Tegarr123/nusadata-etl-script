@@ -70,10 +70,15 @@ The ETL process follows these logical steps:
    - If prompted, configure the "**OAuth consent screen.**" For a personal project, you can choose "**External**" user type and fill in the required app name and email fields.
      
    <img src="images/set.name.auth.platform.png" width="360"> <img src="images/consent.audience.png" width="420">
+   
    - For the "Application type," select "**Desktop app.**"
+   
    <img src="images/app.type.oauth.png" width="360">
+   
    - After creation, a window will pop up. Click "**DOWNLOAD JSON**" to get your credentials file.
+   
    <img src="images/download.json.credentials.png" width="360">
+   
    - Rename the downloaded file to ```credentials.json``` and place it in the root directory of this project.
    
 ### 🔩 Configuration
