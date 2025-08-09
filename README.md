@@ -1,27 +1,54 @@
-# nusadata-etl-script
+# Google Sheets ETL Automation Pipeline 📈
+A Python-based ETL pipeline for consolidating data from multiple Google Sheets into a central data warehouse sheet. This project automates the process of merging, transforming, and loading data, featuring built-in support for Change Data Capture and Slowly Changing Dimension (SCD) Type 1 updates.
 
-### Brief Overview
-The **Nusadata project** aims to comprehensively map the digital divide in Indonesia. The primary goal is to identify, evaluate, and analyze relevant datasets concerning digital access, with the potential to expand into digital usage, literacy, and equity impacts.
+### 📋 Table of Contents
+- Overview
+- Features
+- Pipeline Architecture
+- How It Works
+- Project Structure
+- Prerequisites
+- Setup & Installation
+- Configuration
+- Usage
 
-### Key Objectives & Activities
-The project is structured around four main activities:
-- Dataset Identification: Finding and assessing available datasets on digital connectivity in Indonesia.
-- Data Analysis: Examining the quality of metadata, interoperability, and identifying gaps in digital divide indicators at both national and sub-national levels.
-- Standardization: Developing standardized data models and metadata schemas to enable consistent comparisons across different times, regions, and demographic groups.
-- Prototyping: Building a prototype web portal to visualize key indicators, allow data downloads, and support policy-making simulations.
+### 🔎 Overview
+This project is designed to solve the common challenge of aggregating cleaned, but separate, datasets residing in Google Sheets. It provides a robust, re-runnable script that intelligently merges new and updated records into a master Google Sheet, which acts as a simple data warehouse. The core logic handles updates by overwriting existing records (SCD Type 1) and appends new records, ensuring the data warehouse stays current with minimal manual intervention.
 
-### Team & My Role
-- The project team consists of seven members: one project leader, three data clerks, and three dashboard engineers.
-- My role as a Dashboard Engineer is crucial for the data infrastructure. I am responsible for designing and implementing the ETL (Extract, Transform, Load) process. This involves taking raw data from our sources, managed by the data clerks, and transforming it into a clean, structured format suitable for the data warehouse.
+### ✨ Features
+- **Automated ETL**: Fully automates the Extract, Transform, and Load process.
+- **Google API Integration**: Seamlessly connects to Google Sheets and Google Drive using their respective APIs.
+- **Data Consolidation**: Merges data from multiple source Google Sheets into one destination sheet.
+- **Change Data Capture (CDC)**: Automatically identifies and processes new rows from the source data.
+- **SCD Type 1 Handling**: Updates existing records by overwriting them with the latest data, ensuring no historical versions are kept.
+- **Idempotent Design**: The script can be run multiple times without causing data duplication or errors. Anyone can run it to fetch the latest updates.
+### 📄 Pipeline Architecture
+The ETL process follows these logical steps:
+1. **Extract**: The script authenticates with the Google API and reads all data from the specified source Google Sheets into Pandas DataFrames.
+2. **Transform**: It merges these DataFrames into a single, consolidated DataFrame.
+3. **Load & Update Logic**:
+   - The script fetches the current data from the destination "Data Warehouse" sheet.
+   - It uses a **primary key** (e.g., an 'ID' column) to differentiate records.
+   - **For New Data (CDC)**: Any row from the source data whose primary key does not exist in the warehouse is identified as a new record and is appended to the warehouse.
+   - **For Existing Data (SCD Type 1)**: Any row from the source data whose primary key already exists in the warehouse is identified as an update. The script then overwrites the existing row in the warehouse with the new data.
+4. **Final Load**: The updated DataFrame (containing both new and modified rows) is written back to the destination Google Sheet.
 
-### Current Data Workflow
-The current data pipeline is streamlined and built entirely on the Google ecosystem:
-- Data Source: The primary data comes from Badan Pusat Statistik (BPS). This data is managed and maintained by the data clerks within Google Sheets.
-- ETL Process: I extract this data from the source sheets, perform necessary transformations (cleaning, standardizing, aggregating), and load it into the data warehouse.
-- Data Warehouse: The central data warehouse is also hosted on Google Sheets, which I will interact with programmatically using the Google Sheets API.
 
-![Project Workflow](https://raw.githubusercontent.com/Tegarr123/nusadata-etl-script/refs/heads/main/project_workflow.png)
+### ⚙️ How It Works
 
-![ETL for merging cleaned data](https://raw.githubusercontent.com/Tegarr123/nusadata-etl-script/refs/heads/main/etl_one_single_table.png)
 
-![ETL for inserting data warehouse](https://raw.githubusercontent.com/Tegarr123/nusadata-etl-script/refs/heads/main/dw_pipeline.png)
+### 📁 Project Structure
+
+
+### 🔧 Prerequisites
+
+### 🚀 Setup & Installation
+
+
+### 🔩 Configuration
+
+### ▶️ Usage
+To run the full ETL process, simply execute the main Python script from your terminal:
+```python main.py```
+The script will print progress updates to the console, such as the number of new rows added and existing rows updated.
+For a more interactive experience or for debugging, you can use the etl_notebook.ipynb in a Jupyter environment.
