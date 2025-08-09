@@ -23,8 +23,8 @@ This project is designed to solve the common challenge of aggregating cleaned, b
 - **SCD Type 1 Handling**: Updates existing records by overwriting them with the latest data, ensuring no historical versions are kept.
 - **Idempotent Design**: The script can be run multiple times without causing data duplication or errors. Anyone can run it to fetch the latest updates.
 ### 📄 Pipeline Architecture
-
-
+![Architecture](images/architecture.png)
+Image 1. Pipeline Architecture
 
 ### ⚙️ How It Works
 The ETL process follows these logical steps:
@@ -44,7 +44,7 @@ The ETL process follows these logical steps:
 - Python 3.11
 - A Google Cloud Platform (GCP) project.
 - Enabled Google Drive API and Google Sheets API in your GCP project.
-- A Google Service Account with credentials (JSON key file).
+- A OAuth 2.0 Client ID with credentials (JSON key file).
   
 ### 🚀 Setup & Installation
 1. **Clone the Repository:**

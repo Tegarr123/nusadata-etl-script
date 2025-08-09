@@ -6,3 +6,5 @@ dummy.ipynb
 token.json
 helper.py
 threshold.csv
+settings.py
+__pycache__/
