@@ -24,7 +24,6 @@ This project is designed to solve the common challenge of aggregating cleaned, b
 - **Idempotent Design**: The script can be run multiple times without causing data duplication or errors. Anyone can run it to fetch the latest updates.
 ### 📄 Pipeline Architecture
 ![Architecture](images/architecture.png)
-Image 1. Pipeline Architecture
 
 ### ⚙️ How It Works
 The ETL process follows these logical steps:
@@ -69,8 +68,11 @@ The ETL process follows these logical steps:
    - Go to "APIs & Services" → "Credentials."
    - Click "+ CREATE CREDENTIALS" and select "**OAuth client ID.**"
    - If prompted, configure the "**OAuth consent screen.**" For a personal project, you can choose "**External**" user type and fill in the required app name and email fields.
+   ![set_name](images/set.name.auth.platform.png) ![consent_audience](images/consent.audience.png)
    - For the "Application type," select "**Desktop app.**"
+   ![application_type](images/app.type.oauth.png)
    - After creation, a window will pop up. Click "**DOWNLOAD JSON**" to get your credentials file.
+   ![download_json](images/download.json.credentials.png)
    - Rename the downloaded file to ```credentials.json``` and place it in the root directory of this project.
    
 ### 🔩 Configuration
