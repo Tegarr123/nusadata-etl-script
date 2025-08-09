@@ -64,11 +64,11 @@ The ETL process follows these logical steps:
    - Go to your [Google Cloud Console](https://console.cloud.google.com/).
    - Create a new project (or use an existing one).
    - Enable the **Google Drive API** and **Google Sheets API**.
-   <img src="images/drive.api.png" widht="100"> ![sheets_api](images/sheets.api.png)
+   ![drive_api](images/drive.api.png) ![sheets_api](images/sheets.api.png)
    - Go to "APIs & Services" → "Credentials."
    - Click "+ CREATE CREDENTIALS" and select "**OAuth client ID.**"
    - If prompted, configure the "**OAuth consent screen.**" For a personal project, you can choose "**External**" user type and fill in the required app name and email fields.
-   ![set_name](images/set.name.auth.platform.png = 100x100) ![consent_audience](images/consent.audience.png = 100x100)
+   <img src="images/set.name.auth.platform.png" width="100" height="100"> ![consent_audience](images/consent.audience.png = 100x100)
    - For the "Application type," select "**Desktop app.**"
    ![application_type](images/app.type.oauth.png = 100x100)
    - After creation, a window will pop up. Click "**DOWNLOAD JSON**" to get your credentials file.
