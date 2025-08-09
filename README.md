@@ -8,7 +8,7 @@ A Python-based ETL pipeline for consolidating data from multiple Google Sheets i
 - [How It Works](#-how-it-works)
 - [Project Structure](#-project-structure)
 - [Prerequisites](#-prerequisites)
-- [Setup & Installation](#-setup-&-installation)
+- [Setup & Installation](#-setup--installation)
 - [Configuration](#-configuration)
 - [Usage](#-usage)
 
