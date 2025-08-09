@@ -2,7 +2,7 @@
 A Python-based ETL pipeline for consolidating data from multiple Google Sheets into a central data warehouse sheet. This project automates the process of merging, transforming, and loading data, featuring built-in support for Change Data Capture and Slowly Changing Dimension (SCD) Type 1 updates.
 
 ### 📋 Table of Contents
-- [Overview](#Overview)
+- [Overview](#-overview)
 - Features
 - Pipeline Architecture
 - How It Works
