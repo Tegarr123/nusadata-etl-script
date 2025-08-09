@@ -71,9 +71,9 @@ The ETL process follows these logical steps:
      
    <img src="images/set.name.auth.platform.png" width="360"> <img src="images/consent.audience.png" width="420">
    - For the "Application type," select "**Desktop app.**"
-   ![application_type](images/app.type.oauth.png = 100x100)
+   <img src="images/app.type.oauth.png" width="360">
    - After creation, a window will pop up. Click "**DOWNLOAD JSON**" to get your credentials file.
-   ![download_json](images/download.json.credentials.png = 100x100)
+   <img src="images/download.json.credentials.png" width="360">
    - Rename the downloaded file to ```credentials.json``` and place it in the root directory of this project.
    
 ### 🔩 Configuration
