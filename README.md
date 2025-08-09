@@ -53,6 +53,8 @@ The ETL process follows these logical steps:
 
 ### ▶️ Usage
 To run the full ETL process, simply execute the main Python script from your terminal:
-```python main.py```
+```bash
+python main.py
+```
 The script will print progress updates to the console, such as the number of new rows added and existing rows updated.
 For a more interactive experience or for debugging, you can use the etl_notebook.ipynb in a Jupyter environment.
