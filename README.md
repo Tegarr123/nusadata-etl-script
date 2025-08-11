@@ -83,6 +83,26 @@ nusadata-etl-script/
    - Rename the downloaded file to ```credentials.json``` and place it in the root directory of this project.
    
 ### 🔩 Configuration
+Before running the script, rename ```settings.py.example``` to ```settings.py``` and the update with your specific information
+```bash
+MASTER_INCOME_PROVINCE_SPSID="[spreadsheet_id]"
+MASTER_INDICATOR_SPSID="[spreadsheet_id]"
+MASTER_AREA_SPSID="[spreadsheet_id]"
+MASTER_YEAR_SPSID="[spreadsheet_id]"
+
+MASTER_WORKSHEET="main"
+CLEANED_DATA_DRIVE_FOLDER="[drive_folder_id]"
+SCOPES=["https://www.googleapis.com/auth/drive","https://www.googleapis.com/auth/spreadsheets"]
+WAREHOUSE_DATA_SPS_ID="[spreadsheet_id]"
+```
+- ```MASTER_INCOME_PROVINCE_SPSID``` : spreadsheet id for master data of province income
+- ```MASTER_INDICATOR_SPSID``` : spreadsheet id for master data of digital indicator in indonesia
+- ```MASTER_AREA_SPSID``` : spreadsheet id for master data of area/location in indonesia
+- ```MASTER_YEAR``` : spreadsheet id for master data of Year (time) in indonesia
+- ```MASTER_WORKSHEET``` : worksheet id for master all of the master data (worksheet name should be the same)
+- ```CLEANED_DATA_DRIVE_FOLDER``` : google drive folder id containing all of cleaned data sources
+- ```SCOPES``` : scope for utilizing google API service (by default is provided)
+- ```WAREHOUSE_DATA_SPS_ID``` : destination spreadsheet id for storing data warehouse
 
 ### ▶️ Usage
 To run the full ETL process, simply execute the main Python script from your terminal:
