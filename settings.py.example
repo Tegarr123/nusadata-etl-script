@@ -1,0 +1,9 @@
+MASTER_INCOME_PROVINCE_SPSID=
+MASTER_INDICATOR_SPSID=
+MASTER_AREA_SPSID=
+MASTER_YEAR_SPSID=
+
+MASTER_WORKSHEET="main"
+CLEANED_DATA_DRIVE_FOLDER=
+SCOPES=["https://www.googleapis.com/auth/drive","https://www.googleapis.com/auth/spreadsheets"]
+WAREHOUSE_DATA_SPS_ID=
