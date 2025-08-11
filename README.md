@@ -103,6 +103,15 @@ WAREHOUSE_DATA_SPS_ID="[spreadsheet_id]"
 - ```CLEANED_DATA_DRIVE_FOLDER``` : google drive folder id containing all of cleaned data sources
 - ```SCOPES``` : scope for utilizing google API service (by default is provided)
 - ```WAREHOUSE_DATA_SPS_ID``` : destination spreadsheet id for storing data warehouse
+<br>
+
+**drive folder id**<br>
+<img src="images/cleaned_data_source.png" width="360">
+<br>
+
+**Spreadsheet id and Worksheet Name**<br>
+<img src="images/spreadsheet_id.png" width="360">
+<br>
 
 ### ▶️ Usage
 To run the full ETL process, simply execute the main Python script from your terminal:
