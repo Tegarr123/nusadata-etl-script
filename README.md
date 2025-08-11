@@ -83,7 +83,7 @@ nusadata-etl-script/
    - Rename the downloaded file to ```credentials.json``` and place it in the root directory of this project.
    
 ### 🔩 Configuration
-Before running the script, rename ```settings.py.example``` to ```settings.py``` and the update with your specific information
+Before running the script, rename ```settings.py.example``` to ```settings.py``` and then update with your specific information
 ```bash
 MASTER_INCOME_PROVINCE_SPSID="[spreadsheet_id]"
 MASTER_INDICATOR_SPSID="[spreadsheet_id]"
