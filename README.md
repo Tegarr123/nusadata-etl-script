@@ -37,7 +37,14 @@ The ETL process follows these logical steps:
 4. **Final Load**: The updated DataFrame (containing both new and modified rows) is written back to the destination Google Sheet.
 
 ### 📁 Project Structure
-
+```bash
+nusadata-etl-script/
+├── credentials.json
+├── etl_notebook.ipynb
+├── main.py
+├── requirements.txt
+└── settings.py
+```
 
 ### 🔧 Prerequisites
 - Python 3.11
