@@ -106,11 +106,11 @@ WAREHOUSE_DATA_SPS_ID="[spreadsheet_id]"
 <br>
 
 **drive folder id**<br>
-<img src="images/cleaned_data_source.png" width="360">
+<img src="images/cleaned_data_source.png" width="480">
 <br>
 
 **Spreadsheet id and Worksheet Name**<br>
-<img src="images/spreadsheet_id.png" width="360">
+<img src="images/spreadsheet_id.png" width="480">
 <br>
 
 ### ▶️ Usage
